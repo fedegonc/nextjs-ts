@@ -1,17 +1,17 @@
-interface ProductPageProps {
-  params: { id: string }; // Definir explícitamente el tipo de los parámetros
-}
+"use client";
 
-export default async function ProductDetails({ params }: ProductPageProps) {
-  const productId = params.id;
+import { useParams } from "next/navigation";
 
-  // Simular datos del producto o reemplazar con un fetch
+export default function ProductDetails() {
+  const { id } = useParams(); // Obtén el parámetro dinámico "id" de la URL
+
+  // Simulación de datos del producto
   const product = {
-    id: productId,
-    name: `Producto ${productId}`,
-    description: `Esta es la descripción del producto ${productId}.`,
-    price: `$${20 * Number(productId)}.00`,
-    image: `/product${productId}.jpg`,
+    id,
+    name: `Producto ${id}`,
+    description: `Esta es la descripción del producto ${id}.`,
+    price: `$${20 * Number(id)}.00`,
+    image: `/product${id}.jpg`,
   };
 
   return (
