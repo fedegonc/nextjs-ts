@@ -3,9 +3,8 @@
 import { useParams } from "next/navigation";
 
 export default function ProductDetails() {
-  const { id } = useParams(); // Obtén el parámetro dinámico "id" de la URL
+  const { id } = useParams(); // Obtiene el ID de la URL
 
-  // Simulación de datos del producto
   const product = {
     id,
     name: `Producto ${id}`,
