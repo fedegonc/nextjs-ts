@@ -52,4 +52,9 @@ export default function Products() {
                 Comprar
               </button>
             </div>
-   
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
