@@ -1,4 +1,10 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 export default function Products() {
+  const router = useRouter(); // Hook para navegación programática
+
   const products = [
     {
       id: 1,
@@ -21,19 +27,16 @@ export default function Products() {
       price: "$40.00",
       image: "/product3.jpg",
     },
-    {
-      id: 4,
-      name: "Producto 4",
-      description: "Descripción breve del producto 4.",
-      price: "$50.00",
-      image: "/product4.jpg",
-    },
   ];
+
+  const handleViewDetails = (id: number) => {
+    router.push(`/products/${id}`); // Redirige a la ruta dinámica con el ID
+  };
 
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-6 text-center">Nuestros Productos</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {products.map((product) => (
           <div
             key={product.id}
@@ -48,8 +51,11 @@ export default function Products() {
               <h2 className="text-lg font-bold">{product.name}</h2>
               <p className="text-gray-600">{product.description}</p>
               <p className="text-xl font-semibold mt-2">{product.price}</p>
-              <button className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                Comprar
+              <button
+                onClick={() => handleViewDetails(product.id)}
+                className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+              >
+                Ver detalles
               </button>
             </div>
           </div>
