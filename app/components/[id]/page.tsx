@@ -1,21 +1,11 @@
-import { Metadata } from "next";
-
 interface ProductPageProps {
-  params: {
-    id: string; // Parámetro dinámico de la URL
-  };
+  params: { id: string }; // Definir explícitamente el tipo de los parámetros
 }
 
-// Configura los metadatos de la página dinámica
-export const metadata: Metadata = {
-  title: "Detalles del Producto",
-  description: "Página de detalles del producto.",
-};
-
-export default function ProductDetails({ params }: ProductPageProps) {
+export default async function ProductDetails({ params }: ProductPageProps) {
   const productId = params.id;
 
-  // Simula datos del producto (puedes reemplazarlo con datos reales)
+  // Simular datos del producto o reemplazar con un fetch
   const product = {
     id: productId,
     name: `Producto ${productId}`,
