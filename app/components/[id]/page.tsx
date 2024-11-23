@@ -1,7 +1,13 @@
-export default function ProductDetails({ params }: { params: { id: string } }) {
+interface ProductPageProps {
+  params: {
+    id: string; // El parámetro dinámico de la URL
+  };
+}
+
+export default function ProductDetails({ params }: ProductPageProps) {
   const productId = params.id;
 
-  // Puedes obtener los detalles reales del producto desde una API o base de datos aquí.
+  // Simular detalles del producto
   const product = {
     id: productId,
     name: `Producto ${productId}`,
