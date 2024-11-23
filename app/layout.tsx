@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Navbar from "../components/Navbar"; // Componente de navegación
 import "./globals.css";
 
 const geistSans = localFont({
@@ -28,7 +29,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {/* Barra de navegación global */}
+        <Navbar />
+        {/* Contenido principal */}
+        <main>{children}</main>
+        {/* Pie de página */}
+        <footer className="text-center py-4 text-gray-500">
+          © 2024 Mi Aplicación. Todos los derechos reservados.
+        </footer>
       </body>
     </html>
   );
