@@ -1,15 +1,17 @@
+"use client"; // Esto convierte el componente en una Client Component
+
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation"; // Usa next/navigation
 
 const Navbar = () => {
-  const router = useRouter(); // Para detectar la ruta activa
+  const pathname = usePathname(); // Obtiene la ruta actual
 
   return (
     <nav className="bg-gray-800 text-white py-4 px-6 flex justify-around">
       <Link
         href="/"
         className={`${
-          router.pathname === "/" ? "text-yellow-400" : "text-white"
+          pathname === "/" ? "text-yellow-400" : "text-white"
         } hover:text-yellow-400`}
       >
         Inicio
@@ -17,7 +19,7 @@ const Navbar = () => {
       <Link
         href="/products"
         className={`${
-          router.pathname === "/products" ? "text-yellow-400" : "text-white"
+          pathname === "/products" ? "text-yellow-400" : "text-white"
         } hover:text-yellow-400`}
       >
         Productos
@@ -25,7 +27,7 @@ const Navbar = () => {
       <Link
         href="/about"
         className={`${
-          router.pathname === "/about" ? "text-yellow-400" : "text-white"
+          pathname === "/about" ? "text-yellow-400" : "text-white"
         } hover:text-yellow-400`}
       >
         Nosotros
@@ -33,7 +35,7 @@ const Navbar = () => {
       <Link
         href="/contact"
         className={`${
-          router.pathname === "/contact" ? "text-yellow-400" : "text-white"
+          pathname === "/contact" ? "text-yellow-400" : "text-white"
         } hover:text-yellow-400`}
       >
         Contacto
