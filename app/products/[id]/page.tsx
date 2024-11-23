@@ -6,9 +6,7 @@ import { useParams } from "next/navigation";
 export default function ProductDetails() {
   const { id } = useParams(); // Extrae el ID de la URL
 
-  // Simula los datos del producto nextjs-ts/app/products/[id]
-/page.tsx
-
+  // Simula los datos del producto
   const product = {
     id,
     name: `Producto ${id}`,
