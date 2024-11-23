@@ -1,19 +1,17 @@
-interface ProductPageProps {
-  params: {
-    id: string; // El parámetro dinámico de la URL
-  };
-}
+"use client";
 
-export default function ProductDetails({ params }: ProductPageProps) {
-  const productId = params.id;
+import { useParams } from "next/navigation";
 
-  // Simular detalles del producto
+export default function ProductDetails() {
+  const { id } = useParams(); // Extrae el ID de la URL
+
+  // Simula los datos del producto
   const product = {
-    id: productId,
-    name: `Producto ${productId}`,
-    description: `Esta es la descripción del producto ${productId}.`,
-    price: `$${20 * Number(productId)}.00`,
-    image: `/product${productId}.jpg`,
+    id,
+    name: `Producto ${id}`,
+    description: `Esta es la descripción del producto ${id}.`,
+    price: `$${20 * Number(id)}.00`,
+    image: `/product${id}.jpg`,
   };
 
   return (
